@@ -150,13 +150,13 @@ public class CachedCalculatorTest
     {
         // Arrange
         var calculator = new CachedCalculator();
-        string cacheKey = "2Add3";
 
         // Act
-        int saveToCache = calculator.Add(2, 3);
+        int saveToCache1st = calculator.Add(2, 3);
+        int saveToCache2nd = calculator.Add(2, 3);
 
         //Assert
-        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+        Assert.IsTrue(calculator._cache.Count.Equals(1));
     }
 
     [Test]
@@ -164,54 +164,56 @@ public class CachedCalculatorTest
     {
         // Arrange
         var calculator = new CachedCalculator();
-        string cacheKey = "2Subtract3";
         
         // Act
-        int saveToCache = calculator.Subtract(2, 3);
+        int saveToCache1st = calculator.Subtract(2, 3);
+        int saveToCache2nd = calculator.Subtract(2, 3);
         
         // Assert
-        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+        Assert.IsTrue(calculator._cache.Count.Equals(1));
     }
 
+    [Test]
     public void Multiply_ShouldUseCache()
     {
         var calculator = new CachedCalculator();
-        string cacheKey = "2Multiply3";
         
-        int saveToCache = calculator.Multiply(2, 3);
+        int saveToCache1st = calculator.Multiply(2, 3);
+        int saveToCache2nd = calculator.Multiply(2, 3);
         
-        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+        Assert.IsTrue(calculator._cache.Count.Equals(1));
     }
 
+    [Test]
     public void Divide_ShouldUseCache()
     {
         var calculator = new CachedCalculator();
-        string cacheKey = "2Divide3";
         
-        int saveToCache = calculator.Divide(2, 3);
+        int saveToCache1st = calculator.Divide(2, 3);
+        int saveToCache2nd = calculator.Divide(2, 3);
         
-        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+        Assert.IsTrue(calculator._cache.Count.Equals(1));
     }
 
     [Test]
     public void Factorial_ShouldUseCache()
     {
         var calculator = new CachedCalculator();
-        string cacheKey = "5Factorial";
         
-        int saveToCache = calculator.Factorial(5);
+        int saveToCache1st = calculator.Factorial(5);
+        int saveToCache2nd = calculator.Factorial(5);
         
-        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+        Assert.IsTrue(calculator._cache.Count.Equals(1));
     }
 
     [Test]
     public void IsPrime_ShouldUseCache()
     {
         var calculator = new CachedCalculator();
-        string cacheKey = "5IsPrime";
         
-        bool saveToCache = calculator.IsPrime(5);
+        bool saveToCache1st = calculator.IsPrime(5);
+        bool saveToCache2nd = calculator.IsPrime(5);
         
-        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+        Assert.IsTrue(calculator._cache.Count.Equals(1));
     }
 }

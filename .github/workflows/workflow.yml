@@ -15,10 +15,9 @@ jobs:
       # Write the commands to install ReportGenerator and Stryker into your pipeline.
       - name: Install required tools
         run: |
-          dotnet install -g dotnet-reportgenerator-globaltool
-          dotnet install -g dotnet-stryker
-
-
+          dotnet tool install -g dotnet-reportgenerator-globaltool
+          dotnet tool install -g dotnet-stryker
+          
       - name: Run unit tests
         run: |
           dotnet test --collect:"XPlat Code Coverage" --results-directory TestResults

@@ -144,4 +144,74 @@ public class CachedCalculatorTest
         //Assert
         Assert.That(result, Is.False);
     }
+    
+    [Test]
+    public void Add_ShouldUseCache()
+    {
+        // Arrange
+        var calculator = new CachedCalculator();
+        string cacheKey = "2Add3";
+
+        // Act
+        int saveToCache = calculator.Add(2, 3);
+
+        //Assert
+        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+    }
+
+    [Test]
+    public void Substract_ShouldUseCache()
+    {
+        // Arrange
+        var calculator = new CachedCalculator();
+        string cacheKey = "2Subtract3";
+        
+        // Act
+        int saveToCache = calculator.Subtract(2, 3);
+        
+        // Assert
+        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+    }
+
+    public void Multiply_ShouldUseCache()
+    {
+        var calculator = new CachedCalculator();
+        string cacheKey = "2Multiply3";
+        
+        int saveToCache = calculator.Multiply(2, 3);
+        
+        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+    }
+
+    public void Divide_ShouldUseCache()
+    {
+        var calculator = new CachedCalculator();
+        string cacheKey = "2Divide3";
+        
+        int saveToCache = calculator.Divide(2, 3);
+        
+        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+    }
+
+    [Test]
+    public void Factorial_ShouldUseCache()
+    {
+        var calculator = new CachedCalculator();
+        string cacheKey = "5Factorial";
+        
+        int saveToCache = calculator.Factorial(5);
+        
+        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+    }
+
+    [Test]
+    public void IsPrime_ShouldUseCache()
+    {
+        var calculator = new CachedCalculator();
+        string cacheKey = "5IsPrime";
+        
+        bool saveToCache = calculator.IsPrime(5);
+        
+        Assert.IsTrue(calculator._cache.ContainsKey(cacheKey));
+    }
 }

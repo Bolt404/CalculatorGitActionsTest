@@ -48,6 +48,11 @@ jobs:
           -reporttypes:Html,SonarQube
         # Use the ReportGenerator tool to generate a report from the code coverage results
 
+      - name: Complete Static Code Analysis
+        run: | # INSERT RELEVANT VARIABLES BELOW
+          dotnet sonarscanner end \
+            /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+
       - name: Run Mutation Tests
         run: |
           dotnet stryker --break-at 80

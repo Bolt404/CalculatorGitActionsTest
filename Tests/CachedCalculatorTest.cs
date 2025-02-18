@@ -156,7 +156,7 @@ public class CachedCalculatorTest
         int saveToCache2nd = calculator.Add(2, 3);
 
         //Assert
-        Assert.IsTrue(calculator._cache.Count.Equals(1));
+        Assert.That(calculator._cache, Has.Count.EqualTo(1));
     }
 
     [Test]
@@ -170,7 +170,7 @@ public class CachedCalculatorTest
         int saveToCache2nd = calculator.Subtract(2, 3);
         
         // Assert
-        Assert.IsTrue(calculator._cache.Count.Equals(1));
+        Assert.That(calculator._cache, Has.Count.EqualTo(1));
     }
 
     [Test]
@@ -181,7 +181,7 @@ public class CachedCalculatorTest
         int saveToCache1st = calculator.Multiply(2, 3);
         int saveToCache2nd = calculator.Multiply(2, 3);
         
-        Assert.IsTrue(calculator._cache.Count.Equals(1));
+        Assert.That(calculator._cache, Has.Count.EqualTo(1));
     }
 
     [Test]
@@ -192,7 +192,7 @@ public class CachedCalculatorTest
         int saveToCache1st = calculator.Divide(2, 3);
         int saveToCache2nd = calculator.Divide(2, 3);
         
-        Assert.IsTrue(calculator._cache.Count.Equals(1));
+        Assert.That(calculator._cache, Has.Count.EqualTo(1));
     }
 
     [Test]
@@ -203,7 +203,7 @@ public class CachedCalculatorTest
         int saveToCache1st = calculator.Factorial(5);
         int saveToCache2nd = calculator.Factorial(5);
         
-        Assert.IsTrue(calculator._cache.Count.Equals(1));
+        Assert.That(calculator._cache, Has.Count.EqualTo(1));
     }
 
     [Test]
@@ -214,6 +214,6 @@ public class CachedCalculatorTest
         bool saveToCache1st = calculator.IsPrime(5);
         bool saveToCache2nd = calculator.IsPrime(5);
         
-        Assert.IsTrue(calculator._cache.Count.Equals(1));
+        Assert.That(calculator._cache, Has.Count.EqualTo(1));
     }
 }

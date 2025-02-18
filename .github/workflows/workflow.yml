@@ -30,9 +30,11 @@ jobs:
             /d:sonar.qualitygate.wait=true \
             /d:sonar.qualitygate.timeout=300
       
+      # For the build to succeed we need to have our dependencies in order
       - name: Restore dependencies
         run: dotnet restore
       
+      # We build but do not redo our dependencies as it takes time and there is no need.
       - name: Build
         run: dotnet build --no-restore
           
@@ -48,9 +50,10 @@ jobs:
           -targetdir:coverage-report \
           -reporttypes:Html,SonarQube
         # Use the ReportGenerator tool to generate a report from the code coverage results
-
+        
+      #We run the Static Code Analysis, 
       - name: Complete Static Code Analysis
-        run: | # INSERT RELEVANT VARIABLES BELOW
+        run: | 
           dotnet sonarscanner end \
             /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 

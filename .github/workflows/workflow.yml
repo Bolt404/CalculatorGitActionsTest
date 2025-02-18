@@ -21,12 +21,12 @@ jobs:
           
       - name: Start Static Code Analysis
         run: | # INSERT RELEVANT VARIABLES BELOW
-          dotnet sonarscanner begin \
-            /k:${{ secrets.SONAR_PROJECT_KEY }} \ 
-            /d:sonar.host.url=${{ vars.SONAR_URL }} \
-            /d:sonar.token=${{ secrets.SONAR_TOKEN }} \
-            /d:sonar.coverageReportPaths="coverage-report/SonarQube.xml" \
-            /d:sonar.qualitygate.wait=true \
+          dotnet sonarscanner begin `
+            /k:${{ secrets.SONAR_PROJECT_KEY }} ` 
+            /d:sonar.host.url=${{ vars.SONAR_URL }} `
+            /d:sonar.token=${{ secrets.SONAR_TOKEN }} `
+            /d:sonar.coverageReportPaths="coverage-report/SonarQube.xml" `
+            /d:sonar.qualitygate.wait=true `
             /d:sonar.qualitygate.timeout=300
           
       - name: Build

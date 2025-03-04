@@ -1,0 +1,25 @@
+﻿services:
+  mariadb:
+    image: mariadb:11.2
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: calculatordb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+    ports:
+      - "3306:3306"
+    
+  flyway:
+    image: flyway/flyway:latest
+    container_name: flyway
+    depends_on:
+      - mariadb
+    volumes:
+      - ./db/migrations:/flyway/sql
+    command: "migrate"
+    environment:
+      FLYWAY_URL: jdbc:mariadb://mariadb:3306/calculatordb
+      FLYWAY_USER: myuser
+      FLYWAY_PASSWORD: mypassword
+    restart: on-failure
+      

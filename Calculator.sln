@@ -4,6 +4,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator", "Calculator\Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{B1E6E546-51D5-4BF8-B79C-CBD7ACE3A557}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5BB06304-3556-428F-B46D-AA2F40A0D0B2}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yaml = docker-compose.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +23,7 @@ Global
 		{B1E6E546-51D5-4BF8-B79C-CBD7ACE3A557}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1E6E546-51D5-4BF8-B79C-CBD7ACE3A557}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1E6E546-51D5-4BF8-B79C-CBD7ACE3A557}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
